@@ -22,7 +22,6 @@
 
     h2 {
       margin-top: 0;
-      text-align: center;
     }
 
     input {
@@ -42,31 +41,44 @@
       cursor: pointer;
       margin-top: 10px;
     }
-
-    p {
-      font-size: 13px;
-      text-align: center;
-      color: red;
-    }
   </style>
 </head>
 
 <body>
 
 <div class="box">
-  <h2>Accesso riservato</h2>
+  <h2>Login</h2>
 
   <input type="email" id="email" placeholder="Email">
   <input type="password" id="password" placeholder="Password">
 
-  <button onclick="login()">Entra</button>
-
-  <p id="error"></p>
+  <button id="loginBtn">Entra</button>
 </div>
 
-<!-- JS LOGIN -->
-<script src="login.js"></script>
+<script>
+  document.getElementById("loginBtn").addEventListener("click", function() {
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const savedEmail = localStorage.getItem("userEmail");
+    const savedPassword = localStorage.getItem("userPassword");
+
+    console.log("Inseriti:", email, password);
+    console.log("Salvati:", savedEmail, savedPassword);
+
+    if (email === savedEmail && password === savedPassword) {
+      localStorage.setItem("loggedIn", "true");
+      window.location.href = "index.html";  // oppure dashboard.html
+    } else {
+      alert("Email o password errate");
+    }
+
+  });
+</script>
 
 </body>
 </html>
+
+
 
