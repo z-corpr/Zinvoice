@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Gen. Fatture 1.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      color: #111;
+    }
+
+    header {
+      background: #000;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .lang-switch span {
+      cursor: pointer;
+      margin-left: 10px;
+      opacity: 0.7;
+    }
+
+    .lang-switch span.active {
+      opacity: 1;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .price {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    button {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 15px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+      margin: 40px 0 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div><strong>Gen. Fatture</strong></div>
+  <div class="lang-switch">
+    <span id="itBtn" class="active">IT</span>
+    <span id="enBtn">EN</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ITALIANO -->
+  <div id="it">
+    <h1>Gen. Fatture 1.0</h1>
+    <p>Il generatore di ricevute semplice, veloce e pulito.</p>
+
+    <ul>
+      <li>Logo personalizzato</li>
+      <li>Dati venditore e cliente</li>
+      <li>Calcolo automatico IVA</li>
+      <li>PDF professionali</li>
+      <li>Numerazione progressiva</li>
+    </ul>
+
+    <p class="price">4,99 € — pagamento unico</p>
+
+    <button onclick="window.location.href='login.html'">
+
+      Acquista ora
+    </button>
+  </div>
+
+  <!-- INGLESE -->
+  <div id="en" style="display:none;">
+    <h1>Gen. Fatture 1.0</h1>
+    <p>The simple, fast and clean receipt generator.</p>
+
+    <ul>
+      <li>Custom logo</li>
+      <li>Seller & customer details</li>
+      <li>Automatic VAT calculation</li>
+      <li>Professional PDF receipts</li>
+      <li>Progressive numbering</li>
+    </ul>
+
+    <p class="price">€4.99 — one-time payment</p>
+
+    <button onclick="window.location.href='login.html'">
+
+      Buy now
+    </button>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Gen. Fatture — All rights reserved
+</footer>
+
+<script>
+  const itBtn = document.getElementById("itBtn");
+  const enBtn = document.getElementById("enBtn");
+  const it = document.getElementById("it");
+  const en = document.getElementById("en");
+
+  itBtn.onclick = () => {
+    it.style.display = "block";
+    en.style.display = "none";
+    itBtn.classList.add("active");
+    enBtn.classList.remove("active");
+  };
+
+  enBtn.onclick = () => {
+    it.style.display = "none";
+    en.style.display = "block";
+    enBtn.classList.add("active");
+    itBtn.classList.remove("active");
+  };
+</script>
+
+</body>
+</html>
