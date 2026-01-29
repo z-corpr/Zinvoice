@@ -56,29 +56,33 @@
 </div>
 
 <script>
-  document.getElementById("loginBtn").addEventListener("click", function() {
+  const USERS = [
+    { email: "admin@genfatture.com", password: "admin123" },
+    { email: "cliente1@email.com", password: "123456" }
+  ];
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+  function login() {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    const savedEmail = localStorage.getItem("userEmail");
-    const savedPassword = localStorage.getItem("userPassword");
+    const found = USERS.find(
+      u => u.email === email && u.password === password
+    );
 
-    console.log("Inseriti:", email, password);
-    console.log("Salvati:", savedEmail, savedPassword);
-
-    if (email === savedEmail && password === savedPassword) {
+    if (found) {
       localStorage.setItem("loggedIn", "true");
-      window.location.href = "index.html";  // oppure dashboard.html
+      localStorage.setItem("userEmail", email);
+      window.location.href = "dashboard.html";
     } else {
-      alert("Email o password errate");
+      alert("Accesso negato: credenziali non valide");
     }
-
-  });
+  }
 </script>
+
 
 </body>
 </html>
+
 
 
 
