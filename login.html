@@ -32,6 +32,7 @@
     }
 
     button {
+
       width: 100%;
       padding: 12px;
       background: #000;
@@ -51,17 +52,18 @@
 
   <input type="email" id="email" placeholder="Email">
   <input type="password" id="password" placeholder="Password">
+<button type="button" onclick="login()">Entra</button>
 
-  <button id="loginBtn">Entra</button>
 </div>
 
 <script>
   const USERS = [
-    { email: "admin@genfatture.com", password: "admin123" },
-    { email: "cliente1@email.com", password: "123456" }
+    { email: "admin@genfatture.com", password: "admin123" }
   ];
 
   function login() {
+    alert("FUNZIONE OK"); // <-- test visivo
+
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
 
@@ -71,10 +73,9 @@
 
     if (found) {
       localStorage.setItem("loggedIn", "true");
-      localStorage.setItem("userEmail", email);
       window.location.href = "dashboard.html";
     } else {
-      alert("Accesso negato: credenziali non valide");
+      alert("Email o password errate");
     }
   }
 </script>
@@ -82,6 +83,7 @@
 
 </body>
 </html>
+
 
 
 
